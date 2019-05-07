@@ -1,0 +1,56 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "city": {
+                    "default": "Victoria",
+                    "description": "The name of a city within B.C. Only job postings located within the specified city will be included in the response. If not specified, the data is not filtered by city.",
+                    "enum": [
+                        "Victoria",
+                        "Vancouver"
+                    ],
+                    "type": "string"
+                },
+                "jobTypes": {
+                    "default": [
+                        1
+                    ],
+                    "description": "ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.",
+                    "enum": [
+                        [
+                            1
+                        ],
+                        [
+                            2
+                        ]
+                    ],
+                    "type": "integer"
+                },
+                "lastRequestDate": {
+                    "default": "2018-08-29",
+                    "description": "The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is _today_ - 10 days.",
+                    "enum": [
+                        "2018-08-29T00:00:00.000Z"
+                    ],
+                    "type": "string"
+                },
+                "majorProjects": {
+                    "default": true,
+                    "description": "When true, only include job postings that have a Major Project associated with them. When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used.",
+                    "type": "boolean"
+                },
+                "region": {
+                    "default": 1,
+                    "description": "The unique id of a region within B.C. Only job postings located within the specified region will be included in the response. If not specified, the data is not filtered by region",
+                    "enum": [
+                        1,
+                        2
+                    ],
+                    "type": "integer"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

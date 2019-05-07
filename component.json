@@ -1,0 +1,119 @@
+{
+    "title": "WorkBC Job Posting",
+    "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our <a href=\"https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice\" target=\"_blank\">data collection notice</a>. Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/gov.bc.ca/jobposting/1.0.0/openapi.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://workbcjobs.api.gov.bc.ca/v1 - Production",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_Industries": {
+            "main": "./lib/actions/get_Industries.js",
+            "title": "Industries",
+            "description": "The Industries endpoint returns all the Industries and related sub industries \ndefined in WorkBC's Job Board. The response includes the id and caption for \neach industry and each sub industry.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_Industries.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jobTypes": {
+            "main": "./lib/actions/get_jobTypes.js",
+            "title": "Job Types",
+            "description": "The Job Types endpoint returns details of all of the\njob types defined in WorkBC's Job Board. The response includes the\nid and caption.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jobTypes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_jobs": {
+            "main": "./lib/actions/post_jobs.js",
+            "title": "Job Feed",
+            "description": "The job feed endpoint returns an array of job records that satisfy the supplied criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_jobs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_majorProjects": {
+            "main": "./lib/actions/get_majorProjects.js",
+            "title": "Major Projects",
+            "description": "The Major Projects endpoint returns details of all of the\nmajor projects defined in WorkBC's Job Board. The response includes the\nid and caption.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_majorProjects.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_regions": {
+            "main": "./lib/actions/get_regions.js",
+            "title": "Regions",
+            "description": "The Regions endpoint returns details of all of the\nregions defined in WorkBC's Job Board. The response includes the\nid and caption.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_regions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "name": "gov-bc-ca-jobposting-connector",
+    "version": "1.0.0",
+    "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our <a href=\"https://github.com/bcgov/api-specs/blob/master/COLLECTION_NOTICE.md#collection-notice\" target=\"_blank\">data collection notice</a>. Please note that you may experience issues when submitting requests to the delivery or test environment if using this [OpenAPI specification](https://github.com/bcgov/api-specs) in other API console viewers.",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}
